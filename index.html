@@ -841,7 +841,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
-    /* Booking Modal */
+    /* Sign-up Modal */
     .booking-overlay {
       position: fixed;
       inset: 0;
@@ -863,14 +863,13 @@
     .booking-modal {
       background: #fff;
       border-radius: 24px;
-      padding: 2.5rem 3.5rem;
+      padding: 3rem 3.5rem 2.5rem;
       width: calc(100vw - 2rem);
-      max-width: 860px;
-      max-height: calc(100vh - 2rem);
-      overflow-y: auto;
+      max-width: 480px;
       position: relative;
       box-shadow: 0 24px 64px rgba(0,0,0,0.15);
       font-family: 'Playfair Display', Georgia, serif;
+      text-align: center;
     }
 
     .booking-close {
@@ -886,157 +885,48 @@
 
     .booking-close svg { width: 20px; height: 20px; }
 
-    .booking-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #5B2D8E;
-      margin-bottom: 0.5rem;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
     .booking-modal h2 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: #1a1208;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
       letter-spacing: -0.02em;
     }
 
     .booking-sub {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #6a5a7a;
       margin-bottom: 1.8rem;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
     }
 
     .booking-step.hidden { display: none; }
 
-    /* Calendar */
-    .booking-calendar { user-select: none; }
-
-    .cal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .cal-header button {
-      background: none;
-      border: 1px solid #e0dbd4;
-      border-radius: 8px;
-      width: 32px;
-      height: 32px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #1a1208;
-      line-height: 1;
-    }
-
-    .cal-header span {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a1208;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .cal-weekdays {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-
-    .cal-weekdays span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #aaa;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .cal-days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-    }
-
-    .cal-day {
-      aspect-ratio: 1.8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #1a1208;
-      transition: background 0.15s;
-    }
-
-    .cal-day:hover:not(.disabled):not(.empty) { background: rgba(91,45,142,0.1); }
-    .cal-day.selected { background: #5B2D8E; color: #fff; font-weight: 700; }
-    .cal-day.disabled { color: #ccc; cursor: default; }
-    .cal-day.empty { cursor: default; }
-
-    /* Time slots */
-    .time-slots {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .time-slot {
-      border: 1px solid #e0dbd4;
-      border-radius: 10px;
-      padding: 0.85rem 0;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      color: #1a1208;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      transition: background 0.15s, border-color 0.15s;
-    }
-
-    .time-slot:hover { background: rgba(91,45,142,0.08); border-color: #5B2D8E; }
-    .time-slot.selected { background: #5B2D8E; color: #fff; border-color: #5B2D8E; }
-
-    /* Form */
-    .booking-form {
+    /* Sign-up form */
+    .signup-email-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 0.85rem;
     }
 
-    .booking-form label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #1a1208;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .booking-form input {
+    .signup-email-form input[type="email"] {
       border: 1px solid #e0dbd4;
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
+      border-radius: 12px;
+      padding: 0.85rem 1.1rem;
+      font-size: 1rem;
       outline: none;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: #1a1208;
       transition: border-color 0.15s;
+      text-align: center;
     }
 
-    .booking-form input:focus { border-color: #5B2D8E; }
+    .signup-email-form input[type="email"]:focus { border-color: #5B2D8E; }
+    .signup-email-form input[type="email"]::placeholder { color: #aaa; }
 
     .booking-submit {
-      background: #5B2D8E;
+      background: #F4694A;
       color: #fff;
       border: none;
       border-radius: 999px;
@@ -1046,23 +936,9 @@
       cursor: pointer;
       font-family: 'Playfair Display', Georgia, serif;
       transition: background 0.2s;
-      margin-top: 0.5rem;
     }
 
-    .booking-submit:hover { background: #4a2275; }
-
-    .booking-back {
-      background: none;
-      border: none;
-      font-size: 0.85rem;
-      color: #aaa;
-      cursor: pointer;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      margin-top: 0.5rem;
-    }
-
-    .booking-back:hover { color: #1a1208; }
+    .booking-submit:hover { background: #e05538; }
 
     /* Confirmed */
     .booking-confirmed {
@@ -1182,12 +1058,10 @@
 </head>
 <body>
   <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-about">About</a>
+    <div class="nav-inner" style="grid-template-columns: 1fr; justify-items: center;">
       <a href="#" class="nav-logo">
         <img src="Relevo Logo Letters 2.png" alt="Relevo" />
       </a>
-      <a href="#" class="nav-signup" onclick="openBooking(event)">Sign up</a>
     </div>
   </nav>
   <section class="hero">
@@ -1239,7 +1113,7 @@
       </div>
       <div class="feature-block-img">
         <div class="feature-block-img-inner">
-          <img src="https://shadcnblocks.com/images/block/placeholder-dark-2.svg" alt="Matching preview" />
+          <img src="1.gif" alt="Matching preview" />
         </div>
       </div>
     </div>
@@ -1297,7 +1171,7 @@
       </div>
       <div class="feature-block-img">
         <div class="feature-block-img-inner">
-          <img src="https://shadcnblocks.com/images/block/placeholder-dark-3.svg" alt="Automation preview" />
+          <img src="3.gif" alt="Automation preview" />
         </div>
       </div>
     </div>
@@ -1346,15 +1220,12 @@
       if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
     }
 
-    // Booking modal
-    let bookingState = { year: null, month: null, day: null, time: null };
-
+    // Sign-up modal
     function openBooking(e) {
       e.preventDefault();
-      const now = new Date();
-      bookingState.year = now.getFullYear();
-      bookingState.month = now.getMonth();
-      goStep(1);
+      document.getElementById('step-1').classList.remove('hidden');
+      document.getElementById('step-confirmed').classList.add('hidden');
+      document.getElementById('signup-email-input').value = '';
       document.getElementById('booking-modal').classList.add('active');
     }
 
@@ -1366,87 +1237,10 @@
       if (e.target === document.getElementById('booking-modal')) closeBooking();
     }
 
-    function goStep(n) {
-      document.querySelectorAll('.booking-step').forEach(s => s.classList.add('hidden'));
-      document.getElementById('step-' + n).classList.remove('hidden');
-      if (n === 1) renderCalendar();
-      if (n === 2) renderTimeSlots();
-    }
-
-    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-    function renderCalendar() {
-      const { year, month } = bookingState;
-      document.getElementById('cal-month-label').textContent = MONTHS[month] + ' ' + year;
-      const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
-      const offset = (firstDay + 6) % 7; // Mon-based
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const today = new Date(); today.setHours(0,0,0,0);
-      const grid = document.getElementById('cal-days');
-      grid.innerHTML = '';
-      for (let i = 0; i < offset; i++) {
-        const el = document.createElement('div');
-        el.className = 'cal-day empty';
-        grid.appendChild(el);
-      }
-      for (let d = 1; d <= daysInMonth; d++) {
-        const el = document.createElement('div');
-        const date = new Date(year, month, d);
-        const isPast = date < today;
-        const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-        el.className = 'cal-day' + (isPast || isWeekend ? ' disabled' : '') + (bookingState.day === d ? ' selected' : '');
-        el.textContent = d;
-        if (!isPast && !isWeekend) el.onclick = () => selectDay(d);
-        grid.appendChild(el);
-      }
-    }
-
-    function selectDay(d) {
-      bookingState.day = d;
-      goStep(2);
-      const label = MONTHS[bookingState.month] + ' ' + d + ', ' + bookingState.year;
-      document.getElementById('step2-date-label').textContent = label;
-    }
-
-    function prevMonth() {
-      const now = new Date();
-      if (bookingState.year === now.getFullYear() && bookingState.month === now.getMonth()) return;
-      bookingState.month--;
-      if (bookingState.month < 0) { bookingState.month = 11; bookingState.year--; }
-      renderCalendar();
-    }
-
-    function nextMonth() {
-      bookingState.month++;
-      if (bookingState.month > 11) { bookingState.month = 0; bookingState.year++; }
-      renderCalendar();
-    }
-
-    function renderTimeSlots() {
-      const times = ['9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM'];
-      const container = document.getElementById('time-slots');
-      container.innerHTML = '';
-      times.forEach(t => {
-        const el = document.createElement('div');
-        el.className = 'time-slot' + (bookingState.time === t ? ' selected' : '');
-        el.textContent = t;
-        el.onclick = () => selectTime(t);
-        container.appendChild(el);
-      });
-    }
-
-    function selectTime(t) {
-      bookingState.time = t;
-      const label = MONTHS[bookingState.month] + ' ' + bookingState.day + ', ' + bookingState.year + ' at ' + t;
-      document.getElementById('step3-summary').textContent = label;
-      goStep(3);
-    }
-
-    function submitBooking(e) {
+    function submitSignup(e) {
       e.preventDefault();
-      const label = MONTHS[bookingState.month] + ' ' + bookingState.day + ', ' + bookingState.year + ' at ' + bookingState.time;
-      document.getElementById('step4-summary').textContent = 'Your demo is booked for ' + label + '.';
-      goStep(4);
+      document.getElementById('step-1').classList.add('hidden');
+      document.getElementById('step-confirmed').classList.remove('hidden');
     }
   </script>
   </section>
@@ -1583,60 +1377,29 @@
     </div>
   </footer>
 
-  <!-- Booking Modal -->
+  <!-- Sign-up Modal -->
   <div id="booking-modal" class="booking-overlay" onclick="closeBookingOutside(event)">
     <div class="booking-modal">
       <button class="booking-close" onclick="closeBooking()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
 
-      <!-- Step 1: Pick date -->
+      <!-- Step 1: Email input -->
       <div class="booking-step" id="step-1">
-        <h2 style="text-align:center; font-size:2.4rem; margin-bottom:1.8rem;">Pick a date</h2>
-        <div class="booking-calendar">
-          <div class="cal-header">
-            <button onclick="prevMonth()">&#8249;</button>
-            <span id="cal-month-label"></span>
-            <button onclick="nextMonth()">&#8250;</button>
-          </div>
-          <div class="cal-weekdays">
-            <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
-          </div>
-          <div class="cal-days" id="cal-days"></div>
-        </div>
-      </div>
-
-      <!-- Step 2: Pick time -->
-      <div class="booking-step hidden" id="step-2">
-        <h2 style="text-align:center; font-size:2.4rem; margin-bottom:0.5rem;">Pick a time</h2>
-        <p class="booking-sub" style="text-align:center;" id="step2-date-label"></p>
-        <div class="time-slots" id="time-slots"></div>
-        <button class="booking-back" onclick="goStep(1)">←</button>
-      </div>
-
-      <!-- Step 3: Contact -->
-      <div class="booking-step hidden" id="step-3">
-        <h2 style="text-align:center; font-size:2.4rem; margin-bottom:0.5rem;">Almost there</h2>
-        <p class="booking-sub" style="text-align:center;" id="step3-summary"></p>
-        <form class="booking-form" onsubmit="submitBooking(event)">
-          <label>Your name
-            <input type="text" placeholder="Jane Smith" required />
-          </label>
-          <label>Work email
-            <input type="email" placeholder="jane@university.edu" required />
-          </label>
-          <button type="submit" class="booking-submit">Request</button>
+        <h2>Get started for free</h2>
+        <p class="booking-sub">Enter your email and we'll get you set up in minutes.</p>
+        <form class="signup-email-form" onsubmit="submitSignup(event)">
+          <input id="signup-email-input" type="email" placeholder="your@email.com" required autocomplete="email" />
+          <button type="submit" class="booking-submit">Continue</button>
         </form>
-        <button class="booking-back" onclick="goStep(2)">←</button>
       </div>
 
-      <!-- Step 4: Confirmed -->
-      <div class="booking-step hidden" id="step-4">
+      <!-- Confirmed -->
+      <div class="booking-step hidden" id="step-confirmed">
         <div class="booking-confirmed">
           <svg viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <h2>You're booked</h2>
-          <p id="step4-summary"></p>
-          <p>Check your inbox for the Zoom link.</p>
+          <h2>You're on the list</h2>
+          <p>We'll be in touch shortly with your next steps.</p>
         </div>
       </div>
     </div>
