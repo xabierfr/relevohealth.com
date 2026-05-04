@@ -1161,7 +1161,7 @@
         width: 52% !important;
       }
 
-      /* Institutions / logos */
+      /* Institutions / logos carousel */
       .crm-section {
         padding: 3.5rem 1.25rem;
       }
@@ -1173,22 +1173,21 @@
         font-size: 0.95rem;
         margin-bottom: 2rem;
       }
-      .uni-logos {
-        gap: 0.5rem;
+      .logo-carousel {
+        margin-top: 1.5rem;
       }
-      .uni-logo-item {
-        width: 120px;
+      .logo-carousel-item {
+        padding: 0 1.5rem;
       }
-      .uni-logo-item img {
-        height: 70px;
+      .logo-carousel-item img {
+        height: 55px;
         max-width: 110px;
       }
-      .uni-logo-item img.uni-logo-ucl {
-        height: 100px;
-        max-width: 110px;
+      .logo-carousel-item img.logo-ucl {
+        height: 80px;
       }
-      .uni-logo-item img[alt="NHS"] {
-        height: 40px !important;
+      .logo-carousel-item img.logo-nhs {
+        height: 34px;
       }
 
       /* CTA bar */
@@ -1648,8 +1647,36 @@
 
     function submitSignup(e) {
       e.preventDefault();
-      document.getElementById('step-1').classList.add('hidden');
-      document.getElementById('step-confirmed').classList.remove('hidden');
+      var email = document.getElementById('signup-email-input').value;
+      fetch('https://formspree.io/f/mqenpoap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'modal' })
+      }).finally(function() {
+        document.getElementById('step-1').classList.add('hidden');
+        document.getElementById('step-confirmed').classList.remove('hidden');
+      });
+    }
+
+    function ctaBarSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var email = form.querySelector('input[type="email"]').value;
+      var btn = form.querySelector('button');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch('https://formspree.io/f/mqenpoap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'cta-bar' })
+      }).finally(function() {
+        btn.textContent = 'You\'re in!';
+        form.querySelector('input').value = '';
+        setTimeout(function() {
+          btn.textContent = 'Get started for free';
+          btn.disabled = false;
+        }, 3000);
+      });
     }
   </script>
   </section>
@@ -1722,10 +1749,10 @@
 
   <section class="cta-bar">
     <h2 class="cta-bar-heading">Take control of your care today</h2>
-    <div class="cta-bar-form">
-      <input type="email" placeholder="Enter your email" />
-      <button type="button">Get started for free</button>
-    </div>
+    <form class="cta-bar-form" action="https://formspree.io/f/mqenpoap" method="POST" onsubmit="ctaBarSubmit(event)">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Get started for free</button>
+    </form>
   </section>
 
   <footer>
@@ -1789,8 +1816,8 @@
       <div class="booking-step" id="step-1">
         <h2>Get started for free</h2>
         <p class="booking-sub">Enter your email and we'll get you set up in minutes.</p>
-        <form class="signup-email-form" onsubmit="submitSignup(event)">
-          <input id="signup-email-input" type="email" placeholder="your@email.com" required autocomplete="email" />
+        <form class="signup-email-form" onsubmit="submitSignup(event)" action="https://formspree.io/f/mqenpoap" method="POST">
+          <input id="signup-email-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
           <button type="submit" class="booking-submit">Continue</button>
         </form>
       </div>
@@ -1799,8 +1826,8 @@
       <div class="booking-step hidden" id="step-confirmed">
         <div class="booking-confirmed">
           <svg viewBox="0 0 24 24" fill="none" stroke="#5B2D8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <h2>You're on the list</h2>
-          <p>We'll be in touch shortly with your next steps.</p>
+          <h2>You're in!</h2>
+          <p>You will receive an email shortly to verify your account.</p>
         </div>
       </div>
     </div>
